@@ -7,3 +7,11 @@ variable "security_groups" {
     type = list
     default = ["sg-123","sg-56678","sg-8798"]
 }
+variable "ami" {
+    type = map
+    default = {
+        us-east-1 = "iugiugiugiu"
+        us-west-2 = "lhkjhkj"
+    }
+  
+}
