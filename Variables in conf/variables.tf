@@ -10,7 +10,7 @@ variable "security_groups" {
 variable "ami" {
     type = map
     default = {
-        us-east-1 = "iugiugiugiu"
+        us-east-2 = "iugiugiugiu"
         us-west-2 = "lhkjhkj"
     }
   
