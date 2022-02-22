@@ -13,5 +13,5 @@ resource "aws_instance" "R" {
 ami = data.aws_ami.RHEL.image_id
 instance_type = "t2.micro"
 tags = {Name ="R-${count.index}"}
-availability_zone = data.aws_availability_zones.available.names[1]
+availability_zone = data.aws_availability_zones.available.names[0]
 }
