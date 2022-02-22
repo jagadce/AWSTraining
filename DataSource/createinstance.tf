@@ -4,14 +4,14 @@ data "aws_ami" "RHEL" {
     owners = ["309956199498"]
     filter {
         name = "name"
-        values = ["RHEL-8*"]
+        values = ["RHEL*"]
     }
    
 }
-resource "aws_instance" "Test" {
+resource "aws_instance" "name" {
     count = 3
-ami = data.aws_ami.RHEL.id
+ami = data.aws_ami.RHEL.image_id
 instance_type = "t2.micro"
-tags = {Name ="Test-${count.index}"}
+tags = {Name ="name-${count.index}"}
 availability_zone = data.aws_availability_zones.available.names[0]
 }
