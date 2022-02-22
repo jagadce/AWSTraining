@@ -3,7 +3,7 @@ data "aws_ami" "RHEL" {
     most_recent = true
     owners = ["309956199498"]
     filter {
-        name = "R"
+        name = "name"
         values = ["RHEL*"]
     }
    
