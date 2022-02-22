@@ -1,6 +1,6 @@
 data "aws_availability_zone" "available" {} 
 data "aws_ami" "ubuntu" {
-    most_recent =  ture
+    most_recent = true
     owners = ["099720109477"]
     filter {
         name = "name"
@@ -17,5 +17,5 @@ resource "aws_instance" "Test" {
 ami = lookup (var.ami,var.AWS_REGION)
 instance_type = "t2.micro"
 tags = {Name ="Test-${count.index}"}
-availability_zone = data.aws_availability_zone.available.names[0]
+availability_zone = data.aws_availability_zone.available.name[0]
 }
