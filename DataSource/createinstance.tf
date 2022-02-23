@@ -8,7 +8,7 @@ data "aws_ami" "RHEL" {
     }
    
 }
-resource "aws_instance" "Test" {
+resource "aws_instance" "Name" {
     count = 3
 ami = data.aws_ami.RHEL.image_id
 instance_type = "t2.micro"
