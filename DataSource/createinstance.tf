@@ -9,9 +9,8 @@ data "aws_ami" "RHEL" {
    
 }
 resource "aws_instance" "J" {
-    count = 3
 ami = data.aws_ami.RHEL.image_id
 instance_type = "t2.micro"
-tags = {Name ="J-${count.index}"}
+tags = {Name ="J"}
 availability_zone = data.aws_availability_zones.available.names[0]
 }
