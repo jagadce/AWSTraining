@@ -11,7 +11,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "Name" {
     count = 3
 instance_type = "t2.micro"
-ami = data.aws_ami.RHEL.id
+ami = data.aws_ami.ubuntu.image_id
 tags = {Name ="Test-${count.index}"}
 availability_zone = data.aws_availability_zones.available.names[0]
 }
