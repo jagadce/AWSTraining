@@ -8,7 +8,7 @@ data "aws_ami" "RHEL" {
     }
    
 }
-resource "aws_instance" "J" {
+resource "aws_instance" "Myinstance" {
 ami = data.aws_ami.RHEL.image_id
 instance_type = "t2.micro"
 tags = {Name ="J"}
