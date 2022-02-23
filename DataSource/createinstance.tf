@@ -8,9 +8,11 @@ data "aws_ami" "RHEL" {
     }
    
 }
-resource "aws_instance" "name" {
+resource "aws_instance" "Test" {
 ami = data.aws_ami.RHEL.image_id
 instance_type = "t2.micro"
-tags = {Name ="J"}
+tags = {
+    name ="Test"
 availability_zone = data.aws_availability_zones.available.names[0]
+}
 }
