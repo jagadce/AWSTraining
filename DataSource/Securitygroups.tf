@@ -3,8 +3,8 @@ data "aws_ip_ranges"  "us-west-iprange" {
     services = ["ec2"]
 }
 
-resource "aws_security_group" "sg-custom-sec" {
-    name = "sg-custom-sec"
+resource "aws_security_group" "sg-custom_sec" {
+    name = "sg-custom_sec"
   ingress {
       from_port = "80"
       to_port = "80"
