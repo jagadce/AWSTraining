@@ -1,10 +1,10 @@
 data "aws_availability_zones" "available" {} 
-data "aws_ami" "RHEL" {
+data "aws_ami" "ubuntu" {
     most_recent = true
     owners = ["309956199498"]
     filter {
         name = "name"
-        values = ["RHEL*"]
+        values = ["ubuntu*"]
     }
    
 }
