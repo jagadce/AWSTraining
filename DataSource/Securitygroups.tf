@@ -3,9 +3,8 @@ data "aws_ip_ranges"  "us-west-iprange" {
     services = ["ec2"]
 }
 
-resource "aws_security_group" "sec_group" {
+resource "aws_security_group" "name"{
       name = "dafult1"
-      securitygroupid = "sg-554656"
   ingress {
       from_port = "80"
       to_port = "80"
