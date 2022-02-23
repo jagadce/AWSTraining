@@ -4,12 +4,15 @@ data "aws_ip_ranges"  "us-west-iprange" {
 }
 
 resource "aws_security_group" "sec_group" {
-  
-    name = "dafult1"
+      name = "dafult1"
+      securitygroupid = "sg-554656"
   ingress {
       from_port = "80"
       to_port = "80"
       protocol = "tcp"
       cidr_blocks = data.aws_ip_ranges.us-west-iprange.cidr_blocks
   }
+}
+tags{
+    
 }
