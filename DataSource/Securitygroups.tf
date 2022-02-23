@@ -6,7 +6,8 @@ data "aws_ip_ranges"  "us-west-iprange" {
 resource "aws_security_group" "name"{
       name = ""
   ingress {
-            protocol = "tcp"
+      from_port = "80"
+      protocol = "tcp"
       cidr_blocks = data.aws_ip_ranges.us-west-iprange.cidr_blocks
   }
 }
