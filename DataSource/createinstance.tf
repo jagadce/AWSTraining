@@ -10,7 +10,7 @@
 #}
 resource "aws_instance" "Name" {
 instance_type = "t2.micro"
-ami = ami-0454207e5367abf01
+ami = "ami-0454207e5367abf01"
 tags = {
     Name ="test"}
 #availability_zone = data.aws_availability_zones.available.names[0]
