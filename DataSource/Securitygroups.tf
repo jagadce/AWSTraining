@@ -13,6 +13,3 @@ resource "aws_security_group" "sec_group" {
       cidr_blocks = data.aws_ip_ranges.us-west-iprange.cidr_blocks
   }
 }
-tags{
-    
-}
