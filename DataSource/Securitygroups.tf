@@ -12,7 +12,3 @@ resource "aws_security_group" "sg-custom-sec" {
       cidr_blocks = data.aws_ip_ranges.us-west-ipranges.cidr_blocks
   }
 }
-tags  {
-    createdate = data.aws_ip_ranges.us-west-ipranges.create_date
-    synctoken = data.aws_ip_ranges.us-west-ipranges.sync_token
-}
