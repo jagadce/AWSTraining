@@ -3,7 +3,7 @@ data "aws_ip_ranges"  "us-west-iprange" {
     services = ["ec2"]
 }
 
-resource "aws_security_group" "name"{
+resource "aws_security_group" "Sec_GRP"{
       name = "jjj"
   ingress {
       from_port = "80"
