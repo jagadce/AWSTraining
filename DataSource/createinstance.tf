@@ -15,11 +15,6 @@ tags = {
     Name ="test1"}
 #availability_zone = data.aws_availability_zones.available.names[0]
 }
-
-provisioner "local-exec" {
-command = "echo aws_instance.Name.private_ip >> My_IP.txt"
-}
-
 output "public_ip" {
     value = aws_instance.Name.public_ip  
 }
