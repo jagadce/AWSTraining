@@ -4,7 +4,7 @@ data "aws_ip_ranges"  "us-west-iprange" {
 }
 
 resource "aws_security_group" "Sec_GRP"{
-      name = "jjj"
+      name = "1"
   ingress {
       from_port = "80"
       to_port = "80"
