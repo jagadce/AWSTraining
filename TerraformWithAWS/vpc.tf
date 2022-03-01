@@ -28,7 +28,7 @@ resource "aws_subnet" "PrivateTrainingsubnet1" {
 map_public_ip_on_launch = "false"
 availability_zone = "us-west-1"
 
-  tags = {
+  tags = {  
     Name = "Trainig"
   }
 }
@@ -108,15 +108,15 @@ resource "aws_route_table" "RoutingTable" {
 
 resource "aws_route_table_association" "Public-a" {
   subnet_id      = aws_subnet.PublicTrainingsubnet.id
-  route_table_id = aws_route_table.RoutingTable
+  route_table_id = aws_route_table.RoutingTable.id
 }
 
 resource "aws_route_table_association" "Public-b" {
   subnet_id      = aws_subnet.PublicTrainingsubnet1.id
-  route_table_id = aws_route_table.RoutingTable
+  route_table_id = aws_route_table.RoutingTable.id
 }
 
 resource "aws_route_table_association" "Public-c" {
   subnet_id      = aws_subnet.PublicTrainingsubnet2.id
-  route_table_id = aws_route_table.RoutingTable
+  route_table_id = aws_route_table.RoutingTable.id
 }
