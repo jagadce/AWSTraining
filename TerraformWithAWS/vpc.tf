@@ -27,7 +27,7 @@ resource "aws_subnet" "PrivateTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.2.0/24"
 map_public_ip_on_launch = "false"
-availability_zone = data.aws_availability_zones.available[0]
+availability_zone = data.aws_availability_zones.available.id
 
   tags = {  
     Name = "Trainig"
@@ -38,7 +38,7 @@ resource "aws_subnet" "PrivateTrainingsubnet2" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.3.0/24"
 map_public_ip_on_launch = "false"
-availability_zone = data.aws_availability_zones.available[0]
+availability_zone = data.aws_availability_zones.available.id
 
   tags = {
     Name = "Trainig"
@@ -51,7 +51,7 @@ resource "aws_subnet" "PublicTrainingsubnet" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.4.0/24"
 map_public_ip_on_launch = "true"
-availability_zone = data.aws_availability_zones.available[0]
+availability_zone = data.aws_availability_zones.available.id
 
   tags = {
     Name = "Trainig"
@@ -62,7 +62,7 @@ resource "aws_subnet" "PublicTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.5.0/24"
 map_public_ip_on_launch = "true"
-availability_zone = data.aws_availability_zones.available[0]
+availability_zone = data.aws_availability_zones.available.id
 
   tags = {
     Name = "Trainig"
@@ -73,7 +73,7 @@ resource "aws_subnet" "PublicTrainingsubnet2" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.6.0/24"
 map_public_ip_on_launch = "true"
-availability_zone = data.aws_availability_zones.available[0]
+availability_zone = data.aws_availability_zones.available.id
 
   tags = {
     Name = "Trainig"
