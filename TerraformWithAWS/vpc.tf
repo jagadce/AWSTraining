@@ -18,7 +18,7 @@ map_public_ip_on_launch = "false"
 availability_zone = "us-west-1a"
 
   tags = {
-    Name = "Trainig"
+    Name = "PrivateTrainingsubnet"
   }
 }
 
@@ -29,7 +29,7 @@ map_public_ip_on_launch = "false"
 availability_zone = "us-west-1a"
 
   tags = {  
-    Name = "Trainig"
+    Name = "PrivateTrainingsubnet"
   }
 }
 
@@ -40,7 +40,7 @@ map_public_ip_on_launch = "false"
 availability_zone = "us-west-1b"
 
   tags = {
-    Name = "Trainig"
+    Name = "PrivateTrainingsubnet"
   }
 }
 
@@ -53,7 +53,7 @@ map_public_ip_on_launch = "true"
 availability_zone = "us-west-1a"
 
   tags = {
-    Name = "Trainig"
+    Name = "PublicTrainingsubnet"
   }
 }
 
@@ -64,7 +64,7 @@ map_public_ip_on_launch = "true"
 availability_zone = "us-west-1a"
 
   tags = {
-    Name = "Trainig"
+    Name = "PublicTrainingsubnet"
   }
 }
 
@@ -75,7 +75,7 @@ map_public_ip_on_launch = "true"
 availability_zone = "us-west-1b"
 
   tags = {
-    Name = "Trainig"
+    Name = "PublicTrainingsubnet"
   }
 }
 
@@ -100,7 +100,7 @@ resource "aws_route_table" "RoutingTable" {
   }
 
    tags = {
-    Name = "RoutingTable"
+    Name = "Public"
   }
 }
 
