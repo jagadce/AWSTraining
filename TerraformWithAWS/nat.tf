@@ -1,4 +1,4 @@
-resource "aws_nat_gateway" "NATGateway" {
+resource "aws_eip" "NATGateway" {
 vpc = true
 }
 
