@@ -22,7 +22,7 @@ resource "aws_route_table" "Private" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_internet_gateway.gw.id
+    nat_gateway_id = aws_nat_gateway.gw.id
   }
 
    tags = {
