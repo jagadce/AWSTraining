@@ -3,7 +3,7 @@ vpc = true
 }
 
 resource "aws_nat_gateway" "gw" {
-  allocation_id = aws_eip.NATGateway
+  allocation_id = aws_eip.NATGateway.id
   subnet_id     = aws_subnet.PublicTrainingsubnet
  depends_on = [aws_internet_gateway.Gateway]
   tags = {
