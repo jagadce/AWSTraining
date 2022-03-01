@@ -1,5 +1,4 @@
 #Create VPC
-data "aws_availability_zones" "available" {}
 resource "aws_vpc" "Training" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
@@ -16,7 +15,7 @@ resource "aws_subnet" "PrivateTrainingsubnet" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.1.0/24"
 map_public_ip_on_launch = "false"
-availability_zone = data.aws_availability_zones.available.id
+availability_zone = "us-west-1a"
 
   tags = {
     Name = "Trainig"
@@ -27,7 +26,7 @@ resource "aws_subnet" "PrivateTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.2.0/24"
 map_public_ip_on_launch = "false"
-availability_zone = data.aws_availability_zones.available.id
+availability_zone = "us-west-1a"
 
   tags = {  
     Name = "Trainig"
@@ -38,7 +37,7 @@ resource "aws_subnet" "PrivateTrainingsubnet2" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.3.0/24"
 map_public_ip_on_launch = "false"
-availability_zone = data.aws_availability_zones.available.id
+availability_zone = "us-west-1b"
 
   tags = {
     Name = "Trainig"
@@ -51,7 +50,7 @@ resource "aws_subnet" "PublicTrainingsubnet" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.4.0/24"
 map_public_ip_on_launch = "true"
-availability_zone = data.aws_availability_zones.available.id
+availability_zone = "us-west-1a"
 
   tags = {
     Name = "Trainig"
@@ -62,7 +61,7 @@ resource "aws_subnet" "PublicTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.5.0/24"
 map_public_ip_on_launch = "true"
-availability_zone = data.aws_availability_zones.available.id
+availability_zone = "us-west-1a"
 
   tags = {
     Name = "Trainig"
@@ -73,7 +72,7 @@ resource "aws_subnet" "PublicTrainingsubnet2" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.6.0/24"
 map_public_ip_on_launch = "true"
-availability_zone = data.aws_availability_zones.available.id
+availability_zone = "us-west-1b"
 
   tags = {
     Name = "Trainig"
