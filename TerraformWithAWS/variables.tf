@@ -7,7 +7,7 @@ default = "us-west-1"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-    default = "Training_Key.pub"
+    default = "Training.pub"
     }
 
 variable "PATH_TO_PRIVATE_KEY" {

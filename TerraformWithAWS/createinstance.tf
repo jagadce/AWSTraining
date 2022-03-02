@@ -1,5 +1,5 @@
-resource "aws_key_pair" "Training_Key" {
-  key_name   = "Training_Key"
+resource "aws_key_pair" "Training" {
+  key_name   = "Training"
   public_key = "file(var.PATH_TO_PUBLIC_KEY)"
  }
 
