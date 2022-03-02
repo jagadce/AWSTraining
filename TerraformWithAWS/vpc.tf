@@ -32,7 +32,7 @@ map_public_ip_on_launch = "false"
 availability_zone = "us-west-1a"
 
   tags = {  
-    Name = "PrivateTrainingsubnet"
+    Name = "PrivateTrainingsubnet1"
   }
 }
 
@@ -43,7 +43,7 @@ map_public_ip_on_launch = "false"
 availability_zone = "us-west-1b"
 
   tags = {
-    Name = "PrivateTrainingsubnet"
+    Name = "PrivateTrainingsubnet2"
   }
 }
 
@@ -67,7 +67,7 @@ map_public_ip_on_launch = "true"
 availability_zone = "us-west-1a"
 
   tags = {
-    Name = "PublicTrainingsubnet"
+    Name = "PublicTrainingsubnet1"
   }
 }
 
@@ -78,7 +78,7 @@ map_public_ip_on_launch = "true"
 availability_zone = "us-west-1b"
 
   tags = {
-    Name = "PublicTrainingsubnet"
+    Name = "PublicTrainingsubnet2"
   }
 }
 
