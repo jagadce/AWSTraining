@@ -10,6 +10,6 @@ variable "PATH_TO_PUBLIC_KEY" {
     default = "Training.pub"
     }
 
-variable "PATH_TO_PRIVATE_KEY" {
-    default = "Training_Key"
-    }
+#variable "PATH_TO_PRIVATE_KEY" {
+ #   default = "Training_Key"
+  #  }
