@@ -1,5 +1,5 @@
 resource "aws_key_pair" "Training_Key" {
-  key_name   = "Trainig_ey"
+  key_name   = "Trainig_key"
   public_key = "file(var.PATH_TO_PUBLIC_KEY)"
 #  private_key = "file(var.PATH_TO_PRIVATE_KEY)"
 }
