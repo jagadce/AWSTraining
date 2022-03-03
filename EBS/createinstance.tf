@@ -37,7 +37,7 @@ resource "aws_volume_attachment" "ebs_attach" {
   instance_id = aws_instance.Test.id
 }
 
-Create Gateway Internet
+#Create Gateway Internet
 
 resource "aws_internet_gateway" "Gateway" {
   vpc_id = aws_vpc.default.id
