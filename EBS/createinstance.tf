@@ -37,5 +37,4 @@ resource "aws_volume_attachment" "ebs_attach" {
   instance_id = aws_instance.Test.id
 }
 
-vpc-0d646e4e264787e6a
 
