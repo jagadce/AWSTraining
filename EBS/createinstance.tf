@@ -36,27 +36,3 @@ resource "aws_volume_attachment" "ebs_attach" {
   volume_id   = aws_ebs_volume.ExternalVolume.id
   instance_id = aws_instance.Test.id
 }
-
-#Create Gateway Internet
-
-resource "aws_internet_gateway" "Gateway" {
-  vpc_id = aws_vpc.default.id
-
-  tags = {
-    Name = "Gateway"
-  }
-}
-
-#Create Routing Table
-
-resource "aws_route_table" "RoutingTable" {
-  vpc_id = aws_vpc.default.id
-    route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.Gateway.id
-  }
-
-   tags = {
-    Name = "Public"
-  }
-}
