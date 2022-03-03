@@ -32,7 +32,7 @@ resource "aws_ebs_volume" "ExternalVolume" {
 #Attach the EBS volume to Instance
 
 resource "aws_volume_attachment" "ebs_attach" {
-  device_name = "/dev/sdb"
+  device_name = "/dev/xvdp"
   volume_id   = aws_ebs_volume.ExternalVolume.id
   instance_id = aws_instance.Test.id
 }
