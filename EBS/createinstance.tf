@@ -20,7 +20,7 @@ output "public_ip" {
 #EBSVolume Creation
 
 resource "aws_ebs_volume" "ExternalVolume" {
-  availability_zone = "us-west-2a"
+  availability_zone = "us-west-1a"
   size              = 40
   type = "gp2"
 
