@@ -6,7 +6,7 @@ data "template_file" "installapche2" {
       gzip = false
       base64_encode = false
     part {
-      file_name = "init.cfg"
+      filename = "init.cfg"
       content_type = "text/cloud-config"
       content = data.template_file.installapche2.rendered
     }
