@@ -17,7 +17,7 @@ tags = {
 }
 
 output "public_ip" {
-    value = aws_instance.Test.private_ip  
+    value = aws_instance.Test.public_ip  
 }
 
 
