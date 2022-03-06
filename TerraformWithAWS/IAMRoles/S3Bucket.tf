@@ -1,13 +1,13 @@
-resource "aws_s3_bucket" "jagbucket1" {
-  bucket = "jagbucket1"
+resource "aws_s3_bucket" "jagadce" {
+  bucket = "jagadce"
 
   tags = {
-    Name        = "jagbucket1"
+    Name        = "jagadce"
     Environment = "Prod"
   }
 }
 
 resource "aws_s3_bucket_acl" "ACLBucket" {
-  bucket = aws_s3_bucket.jagbucket1.id
+  bucket = aws_s3_bucket.jagadce.id
   acl    = "private"
 }
