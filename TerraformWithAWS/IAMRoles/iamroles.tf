@@ -32,7 +32,9 @@ resource "aws_iam_policy" "S3policy" {
         "s3:*"
       ],
       "Effect": "Allow",
-      "Resource": "*"
+      "Resource": [
+          "arn:aws:s3:::jagadce",
+          "arn:aws:s3:::jagadce/*"
     }
   ]
 }
