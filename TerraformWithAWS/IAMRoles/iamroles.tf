@@ -41,5 +41,5 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "Policy-attach" {
   role       = aws_iam_role.S3Role.id
-#  policy_arn = aws_iam_policy.policy.arn
+ policy_arn = aws_iam_policy.S3policy.arn
 }
