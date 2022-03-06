@@ -7,12 +7,12 @@ resource "aws_key_pair" "Training_Key" {
 resource "aws_instance" "Test" {
 instance_type = "t2.micro"
 ami = "ami-0454207e5367abf01"
-aws_iam_instance_profile = aws_iam_instance_profile.S3profile.name
 key_name = aws_key_pair.Training_Key.key_name
 tags = {
     Name ="Test"
     }
 #availability_zone = data.aws_availability_zones.available.names[0]
+aws_iam_instance_profile = aws_iam_instance_profile.S3profile.name
 }
 
 output "public_ip" {
