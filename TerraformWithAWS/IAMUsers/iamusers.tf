@@ -19,8 +19,8 @@ resource "aws_iam_group_membership" "Adminusers" {
   name = "Adminusers"
 
   users = [
-    aws_iam_user.User1.name
-    aws_iam_user.User2.name
+    aws_iam_user.User1.name,
+    aws_iam_user.User2.name,
   ]
 
   group = aws_iam_group.Administrators.name
