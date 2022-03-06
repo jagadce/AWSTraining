@@ -8,7 +8,7 @@ resource "aws_instance" "Test" {
 instance_type = "t2.micro"
 ami = "ami-0454207e5367abf01"
 key_name = aws_key_pair.Training_Key.key_name
-user_data = file("Apacheinstall.sh")
+aws_iam_instance_profile = aws_iam_instance_profile.S3profile.name
 
 tags = {
     Name ="Test"

@@ -43,3 +43,9 @@ resource "aws_iam_role_policy_attachment" "Policy-attach" {
   role       = aws_iam_role.S3Role.id
  policy_arn = aws_iam_policy.S3policy.arn
 }
+
+#Instance identifer
+resource "aws_iam_instance_profile" "S3profile" {
+  name = "S3profile"
+  role = aws_iam_role.S3Role.name
+}
