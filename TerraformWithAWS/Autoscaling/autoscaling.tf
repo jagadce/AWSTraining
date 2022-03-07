@@ -1,5 +1,5 @@
 resource "aws_key_pair" "Training_Key" {
-  name   = "Training_Key"
+  key_name   = "Training_Key"
   public_key = file(var.PATH_TO_PUBLIC_KEY)
  }
 
@@ -8,7 +8,7 @@ resource "aws_launch_configuration" "Autoscaling" {
   name_prefix   = "Autoscaling"
   image_id      = "ami-0454207e5367abf01"
   instance_type = "t2.micro"
-key_name = aws_key_pair.Training_Key.key_name
+  key_name = aws_key_pair.Training_Key.id
 }
 
 
