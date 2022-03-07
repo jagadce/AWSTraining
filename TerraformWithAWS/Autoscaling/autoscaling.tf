@@ -55,8 +55,7 @@ resource "aws_cloudwatch_metric_alarm" "Scaling_monitoring" {
     AutoScalingGroupName = aws_autoscaling_group.Autoscaling_Group.name
   }
 
-  alarm_description = "CPU Average more than 30%"
-  alarm_actions     = [aws_autoscaling_policy.scalingpolicy.arn]
+    alarm_actions     = [aws_autoscaling_policy.scalingpolicy.arn]
 }
 
 #Create Auto-descaling Policy
@@ -84,6 +83,5 @@ resource "aws_cloudwatch_metric_alarm" "de-Scaling_monitoring" {
     AutoScalingGroupName = aws_autoscaling_group.Autoscaling_Group.name
   }
 
-  alarm_description = "CPU Average less 10%"
-  alarm_actions     = [aws_autoscaling_policy.de-scalingpolicy.arn]
+    alarm_actions     = [aws_autoscaling_policy.de-scalingpolicy.arn]
 }
