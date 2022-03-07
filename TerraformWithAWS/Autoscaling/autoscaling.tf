@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "Autoscaling" {
   image_id      = "ami-0454207e5367abf01"
   instance_type = "t2.micro"
 key_name = aws_key_pair.Training_Key.key_name
-
+}
 
 #Create Autoscaling Group
 resource "aws_autoscaling_group" "Autoscaling_Group" {
@@ -28,7 +28,7 @@ resource "aws_autoscaling_group" "Autoscaling_Group" {
     propagate_at_launch = true
   }
 
-
+}
 
 #Create Autoscaling Policy
 resource "aws_autoscaling_policy" "scalingpolicy" {
@@ -50,8 +50,7 @@ resource "aws_cloudwatch_metric_alarm" "Scaling_monitoring" {
   statistic                 = "Average"
   threshold                 = "30"
   alarm_description         = "CPU Average more than 30%"
-  }
-
+  
  dimensions = {
     AutoScalingGroupName = aws_autoscaling_group.Autoscaling_Group.name
   }
@@ -80,7 +79,6 @@ resource "aws_cloudwatch_metric_alarm" "de-Scaling_monitoring" {
   statistic                 = "Average"
   threshold                 = "10"
   alarm_description         = "CPU Average less 10%"
-}
 
  dimensions = {
     AutoScalingGroupName = aws_autoscaling_group.Autoscaling_Group.name
