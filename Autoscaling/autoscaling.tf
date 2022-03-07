@@ -27,7 +27,7 @@ resource "aws_autoscaling_group" "Autoscaling_Group" {
     value               = "AutoscalingMachine"
     propagate_at_launch = true
   }
-}
+
 
 
 #Create Autoscaling Policy
@@ -80,7 +80,7 @@ resource "aws_cloudwatch_metric_alarm" "de-Scaling_monitoring" {
   statistic                 = "Average"
   threshold                 = "10"
   alarm_description         = "CPU Average less 10%"
-  }
+}
 
  dimensions = {
     AutoScalingGroupName = aws_autoscaling_group.Autoscaling_Group.name
@@ -88,4 +88,4 @@ resource "aws_cloudwatch_metric_alarm" "de-Scaling_monitoring" {
 
   alarm_description = "CPU Average less 10%"
   alarm_actions     = [aws_autoscaling_policy.de-scalingpolicy.arn]
-
+}
