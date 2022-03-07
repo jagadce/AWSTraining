@@ -1,8 +1,8 @@
-resource "aws_key_pair" "Training_Key" {
+resource "aws_key_pair" "Training_Key1" {
   key_name   = "Training_Key"
   public_key = file(var.PATH_TO_PUBLIC_KEY)
  }
- 
+
 #Auto scaling Lauch Configuration
 resource "aws_launch_configuration" "Autoscaling" {
   name_prefix   = "Autoscaling"
