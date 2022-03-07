@@ -14,7 +14,7 @@ resource "aws_key_pair" "Training_Key" {
 #Create Autoscaling Group
 resource "aws_autoscaling_group" "Autoscaling_Group" {
   name                 = "Autoscaling_Group"
-  vpc_zone_identifier = [us-west-1a,us-west-1b]
+  vpc_zone_identifier = ["us-west-1a,us-west-1b"]
   launch_configuration = aws_launch_configuration.Autoscaling.name
   min_size             = 1
   max_size             = 2
