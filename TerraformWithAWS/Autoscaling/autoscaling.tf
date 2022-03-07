@@ -10,11 +10,11 @@ resource "aws_key_pair" "Training_Key" {
   key_name   = "Training_Key"
   public_key = file(var.PATH_TO_PUBLIC_KEY)
  }
- 
+
 #Create Autoscaling Group
 resource "aws_autoscaling_group" "Autoscaling_Group" {
   name                 = "Autoscaling_Group"
-  vpc_zone_identifier = ["us-west-1a","us-west-1b"]
+  vpc_zone_identifier = ["us-west-1"]
   launch_configuration = aws_launch_configuration.Autoscaling.name
   min_size             = 1
   max_size             = 2
