@@ -88,4 +88,4 @@ resource "aws_cloudwatch_metric_alarm" "de-Scaling_monitoring" {
 
   alarm_description = "CPU Average less 10%"
   alarm_actions     = [aws_autoscaling_policy.de-scalingpolicy.arn]
-}
+
