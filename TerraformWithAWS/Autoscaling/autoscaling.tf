@@ -24,7 +24,7 @@ resource "aws_autoscaling_group" "Autoscaling_Group" {
   force_delete              = true
 
   tag {
-    key                 = "Name"
+    key                 = "Test"
     value               = "AutoscalingMachine"
     propagate_at_launch = true
   }
