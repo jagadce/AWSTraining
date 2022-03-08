@@ -16,7 +16,7 @@ resource "aws_key_pair" "Training_Key" {
 #Create Autoscaling Group
 resource "aws_autoscaling_group" "Autoscaling_Group" {
   name                 = "Autoscaling_Group"
-  vpc_zone_identifier =  [aws_subnet.PrivateTrainingsubnet.id, aws_subnet.PrivateTrainingsubnet1.id]
+  vpc_zone_identifier =  [aws_subnet.PublicTrainingsubnet.id, aws_subnet.PublicTrainingsubnet1.id]
   launch_configuration = aws_launch_configuration.Autoscaling.name
   min_size             = 2
   max_size             = 2
