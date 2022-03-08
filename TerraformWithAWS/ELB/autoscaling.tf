@@ -22,7 +22,7 @@ resource "aws_autoscaling_group" "Autoscaling_Group" {
   max_size             = 2
   health_check_grace_period = 200
   health_check_type         = "ELB"
-  load_balancers = [aws_elb.ELB.name]
+  load_balancers = [aws_elb.elb.name]
   force_delete              = true
 
   tag {
@@ -34,5 +34,5 @@ resource "aws_autoscaling_group" "Autoscaling_Group" {
 }
 
 output "ELB" {
-value = aws_elb.ELB.dns_name  
+value = aws_elb.elb.dns_name  
 }
