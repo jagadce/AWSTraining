@@ -64,7 +64,7 @@ resource "aws_subnet" "PublicTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
   cidr_block = "10.0.5.0/24"
 map_public_ip_on_launch = "true"
-availability_zone = "us-west-1a"
+availability_zone = "us-west-1b"
 
   tags = {
     Name = "PublicTrainingsubnet1"

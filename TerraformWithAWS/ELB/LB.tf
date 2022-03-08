@@ -1,7 +1,8 @@
 # Create ELB
 resource "aws_elb" "elb" {
   name               = "elb"
-  subnets = [aws_subnet.PrivateTrainingsubnet.id, aws_subnet.PrivateTrainingsubnet1.id]
+  subnets = [aws_subnet.PublicTrainingsubnet.id,aws_subnet.PublicTrainingsubnet1.id]
+  security_groups = aws_security_group.Secgrp_ELB.id
 
    listener {
     instance_port     = 80
