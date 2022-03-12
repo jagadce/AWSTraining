@@ -5,9 +5,4 @@ module "EC2_Instance" {
  ami =  "ami-0454207e5367abf01"
  instance_type = "t2.micro"
 subnet_id = "PublicTrainingsubnet2"
-tags = {
-    terraform = "true"
-    Environment = "PROD"
-
-}
 }
