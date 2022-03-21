@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                git clone -b AWSTraining https://github.com/jagadce/AWSTraining.git            
+                cd TerraformWithAWS          
             }
         }
     }
