@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'hi'        
+                cd TerraformWithAWS
+                terraform plan    
             }
         }
     }
