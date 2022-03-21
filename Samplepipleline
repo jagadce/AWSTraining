@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('init') {
+            steps {
+               git clone -b AWSTraining https://github.com/jagadce/AWSTraining.git
+            }
+        }
+    }
+}
+
