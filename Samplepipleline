@@ -2,11 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('init') {
+        stage('Hello') {
             steps {
-               git clone -b AWSTraining https://github.com/jagadce/AWSTraining.git
+                echo 'Hello World'
             }
         }
     }
 }
-
