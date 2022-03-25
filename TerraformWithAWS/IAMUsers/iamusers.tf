@@ -1,10 +1,10 @@
 #craete Users
 resource "aws_iam_user" "User1" {
-  name = "User1"
+  name = "User3"
 }
 
 resource "aws_iam_user" "User2" {
-  name = "User2"
+  name = "User4"
 }
 
 #Create users Group
