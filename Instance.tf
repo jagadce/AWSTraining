@@ -1,5 +1,3 @@
-
-provider "aws" {
 resource "aws_instance" "Name" {
 instance_type = "t2.micro"
 ami = "ami-0454207e5367abf01"
@@ -9,5 +7,4 @@ tags = {
     Name ="test1"
     }
 }
-}
- 
+} 
