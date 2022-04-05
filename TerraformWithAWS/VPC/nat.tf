@@ -7,6 +7,9 @@ resource "aws_nat_gateway" "gw" {
   subnet_id     = aws_subnet.PrivateTrainingsubnet.id
  depends_on = [aws_internet_gateway.Gateway]
 
+ tags = {
+    Name = "Test_Nat"
+  }
 }
 
 
