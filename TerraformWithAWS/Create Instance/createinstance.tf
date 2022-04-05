@@ -5,12 +5,13 @@ resource "aws_key_pair" "Training_Key" {
 
 
 resource "aws_instance" "Name" {
+    count = 3
 instance_type = "t2.micro"
 ami = "ami-0454207e5367abf01"
 key_name = aws_key_pair.Training_Key.key_name
 
 tags = {
-    Name ="test1"
+    Name ="MyInstance ${count.index}"
     }
 #availability_zone = data.aws_availability_zones.available.names[0]
 }
