@@ -15,6 +15,6 @@ tags = {
     }
 #availability_zone = data.aws_availability_zones.available.names[0]
 }
-output "public_ip" {
-    value = aws_instance.Name.public_ip  
-}
+#output "public_ip" {
+ #   value = aws_instance.Name.public_ip  
+#}
