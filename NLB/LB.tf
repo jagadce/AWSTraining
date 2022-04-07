@@ -27,7 +27,7 @@ resource "aws_lb" "NLB" {
   tags = {
     Environment = "production"
   }
-}
+
   
 #Securtiy Group for ELB
 
