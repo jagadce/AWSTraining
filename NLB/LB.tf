@@ -2,9 +2,12 @@ resource "aws_lb" "NLB" {
   name               = "NLB"
   internal           = false
   load_balancer_type = "network"
+  vpc_id             = aws_vpc.Training.id
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
   security_groups = [aws_security_group.Secgrp_Instance.id]
   enable_deletion_protection = true
+  tcp_enabled                             = var.tcp_enabled
+ 
      tags = {
     Environment = "production"
   }

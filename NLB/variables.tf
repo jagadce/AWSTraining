@@ -13,3 +13,9 @@ variable "PATH_TO_PUBLIC_KEY" {
 #variable "PATH_TO_PRIVATE_KEY" {
  #   default = "Training_Key"
   #  }
+
+variable "tcp_enabled" {
+  type        = bool
+  default     = true
+  description = "A boolean flag to enable/disable TCP listener"
+}
