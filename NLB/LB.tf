@@ -21,12 +21,12 @@ resource "aws_lb" "NLB" {
     health_check_unhealthy_threshold        = 2
 # description = "The duration in seconds in between health checks"
     health_check_interval                   = 10
-      }
+   
 
   tags = {
     Environment = "production"
   }
-
+   }
   
 #Securtiy Group for ELB
 
