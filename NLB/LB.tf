@@ -11,12 +11,7 @@ resource "aws_lb" "NLB" {
     Environment = "production"
   }
 }
-   
-  tags = {
-    Name = "NLB Work"
-  }
-
-
+  
 #Securtiy Group for ELB
 
 resource "aws_security_group" "Secgrp_NLB" {

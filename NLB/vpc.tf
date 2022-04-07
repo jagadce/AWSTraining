@@ -92,7 +92,7 @@ resource "aws_route_table_association" "Public-a" {
   route_table_id = aws_route_table.RoutingTable.id
 }
 
-resource "aws_route_table_association" "Public-a" {
+resource "aws_route_table_association" "Public-b" {
   subnet_id      = aws_subnet.PublicTrainingsubnet1.id
   route_table_id = aws_route_table.RoutingTable.id
 }
