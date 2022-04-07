@@ -4,7 +4,6 @@ resource "aws_lb" "NLB" {
   load_balancer_type = "network"
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
   security_groups = [aws_security_group.Secgrp_Instance.id]
-
   enable_deletion_protection = true
 
     tcp_enabled                             = true
@@ -22,8 +21,8 @@ resource "aws_lb" "NLB" {
     health_check_unhealthy_threshold        = 2
 # description = "The duration in seconds in between health checks"
     health_check_interval                   = 10
-    
-  }
+      }
+
   tags = {
     Environment = "production"
   }
