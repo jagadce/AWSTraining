@@ -5,25 +5,23 @@ resource "aws_lb" "NLB" {
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
   security_groups = [aws_security_group.Secgrp_Instance.id]
   enable_deletion_protection = true
-
-    tcp_enabled                             = true
-    access_logs_enabled                     = true
+  tcp_enabled                             = true
+  access_logs_enabled                     = true
   #description = "A boolean flag to enable/disable cross zone load balancing"
-    cross_zone_load_balancing_enabled       = true
-    ip_address_type                         = "ipv4"
+  cross_zone_load_balancing_enabled       = true
+  ip_address_type                         = "ipv4"
 #description = "The amount of time to wait in seconds before changing the state of a deregistering target to unused"
-    deregistration_delay                    = 15
-    health_check_enabled                    = true
-    health_check_port                       = 80
-    health_check_protocol                   = tcp
+  deregistration_delay                    = 15
+  health_check_enabled                    = true
+  health_check_port                       = 80
+  health_check_protocol                   = tcp
 #description = "The number of consecutive health checks successes required before considering an unhealthy target healthy, or failures required before considering a health target unhealthy"
-    health_check_healthy_threshold          = 2
-    health_check_unhealthy_threshold        = 2
+  health_check_healthy_threshold          = 2
+  health_check_unhealthy_threshold        = 2
 # description = "The duration in seconds in between health checks"
-    health_check_interval                   = 10
+   health_check_interval                   = 10
    
-
-  tags = {
+     tags = {
     Environment = "production"
   }
    }
