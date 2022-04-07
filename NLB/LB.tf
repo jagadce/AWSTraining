@@ -5,8 +5,9 @@ resource "aws_lb" "NLB" {
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
   security_groups = [aws_security_group.Secgrp_Instance.id]
   enable_deletion_protection = true
-  tcp_enabled                             = true
-  access_logs_enabled                     = true
+
+  tcp_enabled                             = "true"
+  access_logs_enabled                     = "true"
   #description = "A boolean flag to enable/disable cross zone load balancing"
   cross_zone_load_balancing_enabled       = true
   ip_address_type                         = "ipv4"
