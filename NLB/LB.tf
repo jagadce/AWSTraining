@@ -7,6 +7,22 @@ resource "aws_lb" "NLB" {
 
   enable_deletion_protection = true
 
+    tcp_enabled                             = true
+    access_logs_enabled                     = true
+    cross_zone_load_balancing_enabled       = true
+    ip_address_type                         = var.ip_address_type
+    deletion_protection_enabled             = var.deletion_protection_enabled
+    deregistration_delay                    = var.deregistration_delay
+    health_check_path                       = var.health_check_path
+    health_check_timeout                    = var.health_check_timeout
+    health_check_healthy_threshold          = var.health_check_healthy_threshold
+    health_check_unhealthy_threshold        = var.health_check_unhealthy_threshold
+    health_check_interval                   = var.health_check_interval
+    target_group_port                       = var.target_group_port
+    target_group_target_type                = var.target_group_target_type
+    
+    context = module.this.context
+  }
   tags = {
     Environment = "production"
   }
