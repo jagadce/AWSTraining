@@ -10,7 +10,7 @@ resource "aws_lb" "NLB" {
     access_logs_enabled                     = true
   #description = "A boolean flag to enable/disable cross zone load balancing"
     cross_zone_load_balancing_enabled       = true
-    ip_address_type                         = ipv4
+    ip_address_type                         = "ipv4"
 #description = "The amount of time to wait in seconds before changing the state of a deregistering target to unused"
     deregistration_delay                    = 15
     health_check_enabled                    = true
