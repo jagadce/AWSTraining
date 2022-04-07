@@ -10,6 +10,39 @@ resource "aws_lb" "NLB" {
     Environment = "production"
   }
 }  
+
+#Creating NLB Listener:
+resource "aws_lb_listener" "NLB_Listener" {
+  load_balancer_arn = aws_lb.NLB.arn
+  port              = "443"
+  protocol          = "TLS"
+  certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
+  alpn_policy       = "HTTP2Preferred"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.ip-Instance.arn
+  }
+}
+
+#Creating Target group 
+resource "aws_lb_target_group" "ip-Instance" {
+  name        = "ip-Instance"
+  port        = 80
+  protocol    = "HTTP"
+  target_type = "ip"
+  vpc_id      = aws_vpc.Training.id
+
+resource "aws_vpc" "Training" {
+  cidr_block = "10.0.0.0/16"
+}
+
+#Attaching Instance into Target group
+resource "aws_lb_target_group_attachment" "NLB-Tragetgroup" {
+  target_group_arn = aws_lb_target_group.ip-Instance.arn
+  target_id        = aws_instance.test1.id
+  port             = 80
+}
   
 #Securtiy Group for ELB
 
