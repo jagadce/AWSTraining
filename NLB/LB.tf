@@ -9,19 +9,20 @@ resource "aws_lb" "NLB" {
 
     tcp_enabled                             = true
     access_logs_enabled                     = true
+  #description = "A boolean flag to enable/disable cross zone load balancing"
     cross_zone_load_balancing_enabled       = true
-    ip_address_type                         = var.ip_address_type
-    deletion_protection_enabled             = var.deletion_protection_enabled
-    deregistration_delay                    = var.deregistration_delay
-    health_check_path                       = var.health_check_path
-    health_check_timeout                    = var.health_check_timeout
-    health_check_healthy_threshold          = var.health_check_healthy_threshold
-    health_check_unhealthy_threshold        = var.health_check_unhealthy_threshold
-    health_check_interval                   = var.health_check_interval
-    target_group_port                       = var.target_group_port
-    target_group_target_type                = var.target_group_target_type
+    ip_address_type                         = ipv4
+#description = "The amount of time to wait in seconds before changing the state of a deregistering target to unused"
+    deregistration_delay                    = 15
+    health_check_enabled                    = true
+    health_check_port                       = 80
+    health_check_protocol                   = tcp
+#description = "The number of consecutive health checks successes required before considering an unhealthy target healthy, or failures required before considering a health target unhealthy"
+    health_check_healthy_threshold          = 2
+    health_check_unhealthy_threshold        = 2
+# description = "The duration in seconds in between health checks"
+    health_check_interval                   = 10
     
-    context = module.this.context
   }
   tags = {
     Environment = "production"
