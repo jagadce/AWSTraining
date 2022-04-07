@@ -31,3 +31,8 @@ resource "aws_route_table_association" "Private-a" {
   subnet_id      = aws_subnet.PrivateTrainingsubnet.id
   route_table_id = aws_route_table.Private.id
 }
+
+resource "aws_route_table_association" "Private-b" {
+  subnet_id      = aws_subnet.PrivateTrainingsubnet.id
+  route_table_id = aws_route_table.Private.id
+}
