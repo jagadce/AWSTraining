@@ -6,8 +6,7 @@ resource "aws_lb" "NLB" {
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
   security_groups = [aws_security_group.Secgrp_Instance.id]
   enable_deletion_protection = true
-  tcp_enabled                             = var.tcp_enabled
- 
+  
      tags = {
     Environment = "production"
   }
