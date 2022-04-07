@@ -32,9 +32,9 @@ resource "aws_lb" "NLB" {
   connection_draining_timeout = 400
 
   tags = {
-    Name = "ELB Work"
+    Name = "NLB Work"
   }
-}
+
 
 #Securtiy Group for ELB
 
