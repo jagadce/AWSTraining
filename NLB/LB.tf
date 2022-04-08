@@ -21,7 +21,7 @@ resource "aws_lb_listener" "NLB_Listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.ip-Instance.arn
+    target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
   }
 }
 
@@ -44,7 +44,7 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
 
 #Attaching Instance into Target group
 resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
-  target_group_arn = aws_lb_target_group.ip-Instance.arn
+  target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
   target_id        = aws_instance.test1.id
   port             = 80
 }
