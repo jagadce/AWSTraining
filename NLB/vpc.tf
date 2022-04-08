@@ -16,7 +16,7 @@ resource "aws_vpc" "Training" {
 
 resource "aws_subnet" "PrivateTrainingsubnet" {
   vpc_id     = aws_vpc.Training.id
-  cidr_block = "10.0.0.1/26"
+  cidr_block = "10.0.0.0/26"
 map_public_ip_on_launch = "false"
 availability_zone = "us-west-1a"
 
@@ -27,7 +27,7 @@ availability_zone = "us-west-1a"
 
 resource "aws_subnet" "PrivateTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
-  cidr_block = "10.0.0.65/26"
+  cidr_block = "10.0.0.64/26"
 map_public_ip_on_launch = "false"
 availability_zone = "us-west-1a"
 
