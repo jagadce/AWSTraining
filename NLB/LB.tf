@@ -14,7 +14,7 @@ resource "aws_lb" "NLB" {
 #Creating NLB Listener:
 resource "aws_lb_listener" "NLB_Listener" {
   load_balancer_arn = aws_lb.NLB.arn
-  port              = "443"
+  port              = "80"
   protocol          = "TLS"
   certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
   alpn_policy       = "HTTP2Preferred"
