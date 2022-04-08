@@ -45,10 +45,15 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
 #Attaching Instance into Target group
 resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
   target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-  target_id        = aws_instance.test1[count.index].id
+  target_id        = aws_instance.test1.id
   port             = 80
 }
   
+  resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
+  target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
+  target_id        = aws_instance.test2id
+  port             = 80
+}
 #Securtiy Group for ELB
 
 resource "aws_security_group" "Secgrp_NLB" {
