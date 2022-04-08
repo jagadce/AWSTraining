@@ -51,7 +51,7 @@ resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
   
   resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
   target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-  target_id        = aws_instance.test2id
+  target_id        = aws_instance.test2.id
   port             = 80
 }
 #Securtiy Group for ELB
