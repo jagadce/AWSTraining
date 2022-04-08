@@ -4,7 +4,7 @@ resource "aws_lb" "NLB" {
   load_balancer_type = "network"
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
 # security_groups = [aws_security_group.Secgrp_Instance.id]
-  enable_deletion_protection = false
+ # enable_deletion_protection = false
   
      tags = {
     Environment = "production"
