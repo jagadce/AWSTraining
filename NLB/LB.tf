@@ -34,7 +34,7 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
   name        = "NLBTargetGroup"
   port        = 80
   protocol    = "HTTP"
-  target_type = "ip"
+  target_type = "instance"
   vpc_id      = aws_vpc.Training.id
 
 }
@@ -45,15 +45,11 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
 #Attaching Instance into Target group
 resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
   target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-  target_id        = aws_instance.test1.id
+  target_id        = aws_instance.test1
   port             = 80
 }
-  
-  resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
-  target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-  target_id        = aws_instance.test2.id
-  port             = 80
-}
+
+
 #Securtiy Group for ELB
 
 resource "aws_security_group" "Secgrp_NLB" {
