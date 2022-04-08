@@ -25,10 +25,6 @@ resource "aws_lb_listener" "NLB_Listener" {
   }
 }
 
-resource "aws_lb_listener_certificate" "listener_certificate" {
-  listener_arn    = aws_lb_listener.NLB_Listener.arn
-  certificate_arn = aws_acm_certificate.NLB_Listener.arn
-}
 #Creating Target group 
 resource "aws_lb_target_group" "NLBTargetGroup" {
   name        = "NLBTargetGroup"
