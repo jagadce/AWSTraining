@@ -1,6 +1,6 @@
 #Create VPC
 resource "aws_vpc" "Training" {
-  cidr_block       = "10.0.0.0/16"
+  cidr_block       = "10.0.0.0/24"
   instance_tenancy = "default"
   enable_dns_support = "true"
   enable_dns_hostnames = "true"
@@ -16,7 +16,7 @@ resource "aws_vpc" "Training" {
 
 resource "aws_subnet" "PrivateTrainingsubnet" {
   vpc_id     = aws_vpc.Training.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = "10.0.0.1/26"
 map_public_ip_on_launch = "false"
 availability_zone = "us-west-1a"
 
@@ -27,7 +27,7 @@ availability_zone = "us-west-1a"
 
 resource "aws_subnet" "PrivateTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
-  cidr_block = "10.0.2.0/24"
+  cidr_block = "10.0.0.65/26"
 map_public_ip_on_launch = "false"
 availability_zone = "us-west-1a"
 
@@ -40,7 +40,7 @@ availability_zone = "us-west-1a"
 
 resource "aws_subnet" "PublicTrainingsubnet" {
   vpc_id     = aws_vpc.Training.id
-  cidr_block = "10.0.3.0/24"
+  cidr_block = "10.0.0.128/26"
 map_public_ip_on_launch = "true"
 availability_zone = "us-west-1a"
 
@@ -51,7 +51,7 @@ availability_zone = "us-west-1a"
 
 resource "aws_subnet" "PublicTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
-  cidr_block = "10.0.4.0/24"
+  cidr_block = "10.0.0.193/26"
 map_public_ip_on_launch = "true"
 availability_zone = "us-west-1a"
 
