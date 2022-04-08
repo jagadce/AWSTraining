@@ -33,9 +33,10 @@ resource "aws_lb_target_group" "ip-Instance" {
   target_type = "ip"
   vpc_id      = aws_vpc.Training.id
 
-resource "aws_vpc" "Training" {
-  cidr_block = "10.0.0.0/16"
 }
+#resource "aws_vpc" "Training" {
+ # cidr_block = "10.0.0.0/16"
+#}
 
 #Attaching Instance into Target group
 resource "aws_lb_target_group_attachment" "NLB-Tragetgroup" {
