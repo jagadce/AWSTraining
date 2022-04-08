@@ -48,7 +48,7 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
  # target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
   #target_id        = [aws_instance.test1.id,aws_instance.test2.id]
   #port             = 80
-}
+#}
 
 
 #Securtiy Group for ELB
