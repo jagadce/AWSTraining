@@ -51,7 +51,7 @@ availability_zone = "us-west-1a"
 
 resource "aws_subnet" "PublicTrainingsubnet1" {
   vpc_id     = aws_vpc.Training.id
-  cidr_block = "10.0.0.193/26"
+  cidr_block = "10.0.0.192/26"
 map_public_ip_on_launch = "true"
 availability_zone = "us-west-1a"
 
