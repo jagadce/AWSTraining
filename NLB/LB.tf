@@ -15,19 +15,23 @@ resource "aws_lb" "NLB" {
 resource "aws_lb_listener" "NLB_Listener" {
   load_balancer_arn = aws_lb.NLB.arn
   port              = "443"
-  protocol          = "TLS"
+  protocol          = "HTTPS"
   certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
   alpn_policy       = "HTTP2Preferred"
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.NLB_Listener.arn
+    target_group_arn = aws_lb_target_group.ip-Instance.arn
   }
 }
 
+resource "aws_lb_listener_certificate" "listener_certificate" {
+  listener_arn    = aws_lb_listener.NLB_Listener.arn
+  certificate_arn = aws_acm_certificate.NLB_Listener.arn
+}
 #Creating Target group 
-resource "aws_lb_target_group" "ip-Instance" {
-  name        = "ip-Instance"
+resource "aws_lb_target_group" "NLBTargetGroup" {
+  name        = "NLBTargetGroup"
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
@@ -39,7 +43,7 @@ resource "aws_lb_target_group" "ip-Instance" {
 #}
 
 #Attaching Instance into Target group
-resource "aws_lb_target_group_attachment" "NLB-Tragetgroup" {
+resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
   target_group_arn = aws_lb_target_group.ip-Instance.arn
   target_id        = aws_instance.test1.id
   port             = 80
