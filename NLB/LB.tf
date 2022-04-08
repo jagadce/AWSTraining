@@ -4,7 +4,7 @@ resource "aws_lb" "NLB" {
   load_balancer_type = "network"
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
 # security_groups = [aws_security_group.Secgrp_Instance.id]
-  enable_deletion_protection = false
+  enable_deletion_protection = true
   
      tags = { 
     Environment = "production"
@@ -12,18 +12,18 @@ resource "aws_lb" "NLB" {
 }  
 
 #Creating NLB Listener:
-#resource "aws_lb_listener" "NLB_Listener" {
-#  load_balancer_arn = aws_lb.NLB.arn
-#  port              = "80"
-#  protocol          = "TLS"
-#  certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
-#  alpn_policy       = "HTTP2Preferred"
+resource "aws_lb_listener" "NLB_Listener" {
+ load_balancer_arn = aws_lb.NLB.arn
+  port              = "80"
+  protocol          = "TLS"
+  certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
+  alpn_policy       = "HTTP2Preferred"
 
- # default_action {
-  #  type             = "forward"
-   # target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-  #}
-#}
+  default_action {
+  type             = "forward"
+   target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
+  }
+}
 
 #resource "aws_lb_listener_certificate" "listener_certificate" {
  # listener_arn    = aws_lb_listener.NLB_Listener.arn
