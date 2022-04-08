@@ -13,7 +13,7 @@ resource "aws_lb" "NLB" {
 
 #Creating NLB Listener:
 resource "aws_lb_listener" "NLB_Listener" {
-  load_balancer_arn = aws_lb.NLB_Listener.arn
+  load_balancer_arn = aws_lb.NLB.arn
   port              = "443"
   protocol          = "TLS"
   certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
@@ -21,7 +21,7 @@ resource "aws_lb_listener" "NLB_Listener" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.ip-Instance.arn
+    target_group_arn = aws_lb_target_group.NLB_Listener.arn
   }
 }
 
