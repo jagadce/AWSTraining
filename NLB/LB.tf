@@ -46,16 +46,9 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
 #Attaching Instance into Target group
 resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
   target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-  targets = [
-        {
-          target_id = "i-05e263f192255af27"
-          port = 80
-        },
-        {
-          target_id = "i-0f3982a7b7ecb6688"
-          port = 80
-        }
-      ]
+  target_id = "i-05e263f192255af27","i-0f3982a7b7ecb6688"
+  port = 80        
+       
  }
 
 
