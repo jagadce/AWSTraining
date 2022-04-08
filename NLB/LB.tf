@@ -25,7 +25,7 @@ resource "aws_lb_listener" "NLB_Listener" {
   }
 }
 
-resource "aws_lb_listener_certificate" "example" {
+resource "aws_lb_listener_certificate" "listener_certificate" {
   listener_arn    = aws_lb_listener.NLB_Listener.arn
  # certificate_arn = aws_acm_certificate.example.arn
 }
