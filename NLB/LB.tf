@@ -11,7 +11,7 @@ resource "aws_lb" "NLB" {
   }
 }  
 
-Creating NLB Listener:
+#Creating NLB Listener:
 resource "aws_lb_listener" "NLB_Listener" {
 load_balancer_arn = aws_lb.NLB.arn
   port              = "80"
