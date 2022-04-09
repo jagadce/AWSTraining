@@ -16,7 +16,7 @@ resource "aws_lb" "NLB" {
 # load_balancer_arn = aws_lb.NLB.arn
 #  port              = "80"
 #  protocol          = "TLS"
-#  certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
+# certificate_arn   = "arn:aws:iam::672021480727:user/AWS-Admin"
 #  alpn_policy       = "HTTP2Preferred"
 
 #  default_action {
@@ -25,10 +25,10 @@ resource "aws_lb" "NLB" {
 #  }
 #}
 
-#resource "aws_lb_listener_certificate" "listener_certificate" {
- # listener_arn    = aws_lb_listener.NLB_Listener.arn
- # certificate_arn = aws_acm_certificate.example.arn
-#}
+resource "aws_lb_listener_certificate" "listener_certificate" {
+  listener_arn    = aws_lb_listener.NLB_Listener.arn
+  certificate_arn = aws_acm_certificate.NLB.arn
+}
 
 #Creating Target group 
 resource "aws_lb_target_group" "NLBTargetGroup" {
