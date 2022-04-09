@@ -27,7 +27,7 @@ resource "aws_lb" "NLB" {
 
 resource "aws_lb_listener_certificate" "listener_certificate" {
   listener_arn    = aws_lb_listener.NLB_Listener.arn
-  certificate_arn = aws_acm_certificate.NLB.arn
+  certificate_arn = aws_acm_certificate.listener_certificate.arn
 }
 
 #Creating Target group 
