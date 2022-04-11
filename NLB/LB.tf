@@ -3,7 +3,7 @@ resource "aws_lb" "NLB" {
   internal           = false
   load_balancer_type = "network"
   subnets            = [aws_subnet.PublicTrainingsubnet.id]
-# security_groups = [aws_security_group.Secgrp_Instance.id]
+  security_groups = [aws_security_group.Secgrp_Instance.id]
   enable_deletion_protection = true
   
      tags = { 
