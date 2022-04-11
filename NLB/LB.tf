@@ -27,7 +27,7 @@ load_balancer_arn = aws_lb.NLB.arn
 
 resource "aws_lb_listener_certificate" "listener_certificate" {
   listener_arn    = aws_lb_listener.NLB_Listener.arn
-  certificate_arn = aws_acm_certificate.listener_certificate.arn
+  certificate_arn = aws_acm_certificate.NLB.arn
 }
 
 #Creating Target group 
