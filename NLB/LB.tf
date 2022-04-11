@@ -16,7 +16,7 @@ resource "aws_lb_listener" "NLB_Listener" {
 load_balancer_arn = aws_lb.NLB.arn
   port              = "80"
   protocol          = "HTTP"
- certificate_arn   = "arn:aws:elasticloadbalancing:us-west-1:672021480727:targetgroup/NLBTargetGroup/8df6ba9c0a84b9a0"
+ #certificate_arn   = "arn:aws:elasticloadbalancing:us-west-1:672021480727:targetgroup/NLBTargetGroup/8df6ba9c0a84b9a0"
   alpn_policy       = "HTTP2Preferred"
 
   default_action {
@@ -25,10 +25,10 @@ load_balancer_arn = aws_lb.NLB.arn
   }
 }
 
-resource "aws_lb_listener_certificate" "listener_certificate" {
-  listener_arn    = aws_lb_listener.NLB_Listener.arn
-  certificate_arn = aws_acm_certificate.NLB.arn
-}
+#resource "aws_lb_listener_certificate" "listener_certificate" {
+ # listener_arn    = aws_lb_listener.NLB_Listener.arn
+  #certificate_arn = aws_acm_certificate.NLB.arn
+#}
 
 #Creating Target group 
 resource "aws_lb_target_group" "NLBTargetGroup" {
