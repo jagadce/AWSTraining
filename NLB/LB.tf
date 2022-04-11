@@ -34,7 +34,7 @@ load_balancer_arn = aws_lb.NLB.arn
 resource "aws_lb_target_group" "NLBTargetGroup" {
   name        = "NLBTargetGroup"
   port        = 80
-  protocol    = "HTTP"
+  protocol    = "TCP"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
 
