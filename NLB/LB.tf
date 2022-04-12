@@ -9,7 +9,11 @@ resource "aws_lb" "NLB" {
     Environment = "production"
   }
 }  
-
+access_logs {
+    bucket        = aws_s3_bucket_acl.NLBACLBucket.id
+    bucket_prefix = "Prod"
+    interval      = 60
+  }
 #Creating NLB Listener:
 resource "aws_lb_listener" "NLB_Listener" {
 load_balancer_arn = aws_lb.NLB.arn
@@ -38,6 +42,15 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
   vpc_id      = aws_vpc.Training.id
 
 }
+
+ health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:80/"
+    interval            = 30
+  }
+
 #resource "aws_vpc" "Training" {
  # cidr_block = "10.0.0.0/16"
 #}
@@ -112,3 +125,6 @@ resource "aws_security_group" "Secgrp_Instance" {
   }
 }
 
+output "public_ip" {
+    value = aws_instance.Name.public_ip  
+}
