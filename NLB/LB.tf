@@ -35,17 +35,7 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
   port        = 80
   protocol    = "TCP"
   target_type = "instance"
-  vpc_id      = aws_vpc.Training.id
-
-}
-#resource "aws_vpc" "Training" {
- # cidr_block = "10.0.0.0/16"
-#}
-
-#Attaching Instance into Target group
-resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
-  target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-    targets = [
+  targets = [
         {
           target_id = "i-0123456789abcdefg"
           port = 80
@@ -55,7 +45,18 @@ resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
           port = 8080
         }
       ]   
- }
+  vpc_id      = aws_vpc.Training.id
+
+}
+#resource "aws_vpc" "Training" {
+ # cidr_block = "10.0.0.0/16"
+#}
+
+#Attaching Instance into Target group
+#resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
+ # target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
+    
+ #}
 
 
 #Securtiy Group for ELB
