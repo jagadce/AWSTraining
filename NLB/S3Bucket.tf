@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "nlb-prod-bucket" {
-  bucket = "nlb-prod-bucket"
+resource "aws_s3_bucket" "nlbprodbucket" {
+  bucket = "nlbprodbucket"
 
   tags = {
     Name        = "NLB Bucket"
@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "nlb-prod-bucket" {
   }
 }
 
-resource "aws_s3_bucket_acl" "nlb-prod-bucket-acl" {
-  bucket = aws_s3_bucket.nlb-prod-bucket.id
+resource "aws_s3_bucket_acl" "nlbprodbucketacl" {
+  bucket = aws_s3_bucket.nlbprodbucket.id
   acl    = "private"
 }
