@@ -127,5 +127,5 @@ resource "aws_security_group" "Secgrp_Instance" {
 }
 
 output "public_ip" {
-    value = aws_instance.Name.public_ip  
+    value = aws_lb.NLB.dns_name  
 }
