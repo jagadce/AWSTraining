@@ -10,7 +10,7 @@ resource "aws_lb" "NLB" {
      }
 access_logs {
     bucket        = aws_s3_bucket_acl.nlbprodbucketacl.id
-    prefix = "Prod"
+    prefix = "prod"
     enabled   = true
   }
     }
