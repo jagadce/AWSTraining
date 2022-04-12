@@ -11,7 +11,7 @@ resource "aws_lb" "NLB" {
 access_logs {
     bucket        = aws_s3_bucket_acl.NLBACLBucket.id
     prefix = "Prod"
-    enaenabled  = true
+    enabled   = true
   }
     }
  
