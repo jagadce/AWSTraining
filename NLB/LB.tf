@@ -22,15 +22,7 @@ load_balancer_arn = aws_lb.NLB.arn
   protocol          = "TCP"
  #certificate_arn   = "arn:aws:elasticloadbalancing:us-west-1:672021480727:targetgroup/NLBTargetGroup/8df6ba9c0a84b9a0"
  # alpn_policy       = "HTTP2Preferred"
- health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    target              = "HTTP:80/"
-    interval            = 30
-  }
-
-  default_action {
+   default_action {
   type             = "forward"
    target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
   }
@@ -48,7 +40,13 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
   protocol    = "TCP"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
-
+health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:80/"
+    interval            = 30
+  }
 }
 
 
