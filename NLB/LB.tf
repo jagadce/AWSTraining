@@ -40,13 +40,13 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
 #resource "aws_vpc" "Training" {
  # cidr_block = "10.0.0.0/16"
 #}
-
+}
 #Attaching Instance into Target group
-resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
-  target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
-    target_id = "i-00461533904131230"
-  port = 80        
- }
+#resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
+ # target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
+  #  target_id = "i-00461533904131230"
+  #port = 80        
+ #}
 
 
 #Securtiy Group for ELB
