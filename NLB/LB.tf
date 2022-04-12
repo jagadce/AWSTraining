@@ -10,8 +10,8 @@ resource "aws_lb" "NLB" {
      }
 access_logs {
     bucket        = aws_s3_bucket_acl.NLBACLBucket.id
-    bucket_prefix = "Prod"
-    interval      = 60
+    prefix = "Prod"
+    enaenabled  = true
   }
     }
  
