@@ -7,20 +7,28 @@ resource "aws_lb" "NLB" {
   #security_groups = [aws_security_group.Secgrp_Instance.id]
      tags = { 
     Environment = "production"
-  }
-}  
+     }
 access_logs {
     bucket        = aws_s3_bucket_acl.NLBACLBucket.id
     bucket_prefix = "Prod"
     interval      = 60
   }
-#Creating NLB Listener:
+    }
+ 
+  #NLB Listener:
 resource "aws_lb_listener" "NLB_Listener" {
 load_balancer_arn = aws_lb.NLB.arn
   port              = "80"
   protocol          = "TCP"
  #certificate_arn   = "arn:aws:elasticloadbalancing:us-west-1:672021480727:targetgroup/NLBTargetGroup/8df6ba9c0a84b9a0"
  # alpn_policy       = "HTTP2Preferred"
+ health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:80/"
+    interval            = 30
+  }
 
   default_action {
   type             = "forward"
@@ -43,13 +51,6 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
 
 }
 
- health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    target              = "HTTP:80/"
-    interval            = 30
-  }
 
 #resource "aws_vpc" "Training" {
  # cidr_block = "10.0.0.0/16"
