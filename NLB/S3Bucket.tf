@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "NLB_PROD_Backup" {
-  bucket = "jagadce"
+  bucket = "NLB_PROD_Backup"
 
   tags = {
     Name        = "NLB Bucket"
