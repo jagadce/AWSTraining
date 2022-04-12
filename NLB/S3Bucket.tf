@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "nlbprodbucket" {
   }
 }
 
-resource "aws_s3_bucket_acl" "nlbprodbucketacl" {
-  bucket = aws_s3_bucket.nlbprodbucket.id
-  acl    = "private"
-}
+#resource "aws_s3_bucket_acl" "nlbprodbucketacl" {
+#  bucket = aws_s3_bucket.nlbprodbucket.id
+ # acl    = "private"
+#}
