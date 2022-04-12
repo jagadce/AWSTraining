@@ -6,7 +6,7 @@ resource "aws_lb" "NLB" {
   enable_deletion_protection = true
   #security_groups = [aws_security_group.Secgrp_Instance.id]
   access_logs {
-    bucket        = aws_s3_bucket.nlbprodbucket.id
+    bucket        = aws_s3_bucket_acl.nlbprodbucketacl.acl
     prefix = "prod"
     enabled   = true
   }
