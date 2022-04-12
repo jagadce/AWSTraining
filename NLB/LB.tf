@@ -9,7 +9,7 @@ resource "aws_lb" "NLB" {
     Environment = "production"
      }
 access_logs {
-    bucket        = aws_s3_bucket_acl.NLBACLBucket.id
+    bucket        = aws_s3_bucket_acl.nlb-prod-bucket-acl.id
     prefix = "Prod"
     enabled   = true
   }
