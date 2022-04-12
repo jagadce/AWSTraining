@@ -37,15 +37,6 @@ resource "aws_lb_target_group" "NLBTargetGroup" {
   protocol    = "TCP"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
-health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    port              = 80
-    interval            = 30
-  }
-}
-
-
 #resource "aws_vpc" "Training" {
  # cidr_block = "10.0.0.0/16"
 #}
