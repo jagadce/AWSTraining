@@ -41,7 +41,7 @@ health_check {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     port              = 80
-    interval            = 30
+    interval            = 5
   }
 }
 
