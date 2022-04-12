@@ -54,8 +54,7 @@ resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
           target_id = "i-a1b2c3d4e5f6g7h8i"
           port = 8080
         }
-      ]
-  port = 80        
+      ]   
  }
 
 
