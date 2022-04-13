@@ -1,27 +1,32 @@
-resource "aws_lb" "NLB" {
-  name               = "NLB"
+#ALB
+resource "aws_lb" "ALB" {
+  name               = "ALB"
   internal           = false
-  load_balancer_type = "network"
-  subnets            = [aws_subnet.PublicTrainingsubnet.id]
+  load_balancer_type = "application"
+  subnets            = [aws_subnet.PrivateTrainingsubnet.id]
   enable_deletion_protection = true
-  #security_groups = [aws_security_group.Secgrp_Instance.id]
-  
-     tags = { 
-    Environment = "production"
-     }
+  access_logs {
+    bucket  = aws_s3_bucket.alb-bucket.bucket
+    prefix  = "prod"
+    enabled = true
+  }
 
-    }
+  tags = {
+    Environment = "production"
+  }
+}
  
-  #NLB Listener:
-resource "aws_lb_listener" "NLB_Listener" {
-load_balancer_arn = aws_lb.NLB.arn
-  port              = "80"
-  protocol          = "TCP"
- #certificate_arn   = "arn:aws:elasticloadbalancing:us-west-1:672021480727:targetgroup/NLBTargetGroup/8df6ba9c0a84b9a0"
- # alpn_policy       = "HTTP2Preferred"
-   default_action {
-  type             = "forward"
-   target_group_arn = aws_lb_target_group.NLBTargetGroup.arn
+  #ALB Listener:
+resource "aws_lb_listener" "_Listener" {
+  load_balancer_arn = aws_lb.ALB.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = ""
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.front_end.arn
   }
 }
 
