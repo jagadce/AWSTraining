@@ -42,7 +42,7 @@ resource "aws_lb_listener_rule" "redirect_http_to_https" {
       status_code = "HTTP_301"
     }
   }
-
+}
 #resource "aws_lb_listener_certificate" "listener_certificate" {
  # listener_arn    = aws_lb_listener.NLB_Listener.arn
   #certificate_arn = aws_acm_certificate.NLB.arn
@@ -55,7 +55,7 @@ resource "aws_lb_target_group" "ALBTargetGroup" {
   protocol    = "TCP"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
-
+}
 
 #Attaching Instance into Target group
 resource "aws_lb_target_group_attachment" "NLB-Tragetgroup-Attach" {
