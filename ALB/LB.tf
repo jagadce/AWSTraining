@@ -42,7 +42,14 @@ resource "aws_lb_listener_rule" "redirect_http_to_https" {
       status_code = "HTTP_301"
     }
   }
+  condition {
+    http_header {
+      http_header_name = "X-Forwarded-For"
+      values           = ["177.249.220.178"]
+    }
+  }
 }
+
 #resource "aws_lb_listener_certificate" "listener_certificate" {
  # listener_arn    = aws_lb_listener.NLB_Listener.arn
   #certificate_arn = aws_acm_certificate.NLB.arn
