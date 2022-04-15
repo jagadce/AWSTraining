@@ -3,7 +3,7 @@ resource "aws_lb" "ALB" {
   name               = "ALB"
   internal           = false
   load_balancer_type = "application"
-  subnets            = [aws_subnet.PrivateTrainingsubnet.id]
+  subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
   enable_deletion_protection = true
   #access_logs {
     #bucket  = aws_s3_bucket.alb-bucket.bucket
