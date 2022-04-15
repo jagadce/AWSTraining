@@ -57,7 +57,7 @@ resource "aws_lb_listener" "ALB_Listener" {
   #}
 #}
 
-#resource "aws_lb_listener_certificate" "listener_certificate" {
+resource "aws_lb_listener_certificate" "listener_certificate" {
   listener_arn    = aws_lb_listener.ALB_Listener.arn
   certificate_arn = aws_acm_certificate.ALB.arn
   }
