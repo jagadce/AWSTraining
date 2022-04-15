@@ -22,7 +22,7 @@ resource "aws_lb_listener" "ALB_Listener" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/003513c8-3d4e-44c6-a1f9-d137d97e5a11"
+  certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/b6a45ad7-897d-440a-9d51-4a8aabda2857"
 
    default_action {
     type = "redirect"
