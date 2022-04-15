@@ -4,7 +4,7 @@ resource "aws_key_pair" "Training_Key" {
  }
 
 
-resource "aws_instance" "test1" {
+resource "aws_instance" "ALB-Instance" {
     count = 2
 instance_type = "t2.micro"
 ami = "ami-0454207e5367abf01"
