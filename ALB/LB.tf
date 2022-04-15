@@ -35,12 +35,12 @@ resource "aws_lb_listener" "ALB_Listener" {
   }
 }
   
- condition {
-    http_header {
-      http_header_name = "X-Forwarded-For"
-      values           = ["177.249.220.178"]
-    }
-  }
+ #condition {
+  #  http_header {
+   #   http_header_name = "X-Forwarded-For"
+    #  values           = ["177.249.220.178"]
+    #}
+  #}
 
 
 #resource "aws_lb_listener_rule" "redirect_http_to_https" {
