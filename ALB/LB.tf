@@ -21,8 +21,8 @@ resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
   port              = "80"
   protocol          = "HTTP"
-  #ssl_policy        = "ELBSecurityPolicy-2016-08"
-  #certificate_arn   = ""
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = ""
 
    default_action {
     type = "redirect"
@@ -89,8 +89,8 @@ resource "aws_security_group" "Secgrp_ALB" {
 
   ingress {
     description      = "Accpet only 80Port"
-    from_port        = 80
-    to_port          = 80
+    from_port        = 443
+    to_port          = 443
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   
