@@ -58,9 +58,9 @@ resource "aws_lb_listener" "ALB_Listener" {
 #}
 
 #resource "aws_lb_listener_certificate" "listener_certificate" {
- # listener_arn    = aws_lb_listener.ALB_Listener.arn
-  #certificate_arn = aws_acm_certificate.ALB.arn
-  #}
+  listener_arn    = aws_lb_listener.ALB_Listener.arn
+  certificate_arn = aws_acm_certificate.ALB.arn
+  }
 
 #Creating Target group 
 resource "aws_lb_target_group" "ALBTargetGroup" {
