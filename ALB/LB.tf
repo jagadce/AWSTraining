@@ -24,16 +24,7 @@ resource "aws_lb_listener" "ALB_Listener" {
   #ssl_policy        = "ELBSecurityPolicy-2016-08"
   #certificate_arn   = ""
 
-  default_action {
-    type             = "redirect"
-    target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
-  }
-}
-
-resource "aws_lb_listener_rule" "redirect_http_to_https" {
-  listener_arn = aws_lb_listener.ALB_Listener.arn
-
-  action {
+   default_action {
     type = "redirect"
 
     redirect {
@@ -42,13 +33,29 @@ resource "aws_lb_listener_rule" "redirect_http_to_https" {
       status_code = "HTTP_301"
     }
   }
-  condition {
+}
+  
+ condition {
     http_header {
       http_header_name = "X-Forwarded-For"
       values           = ["177.249.220.178"]
     }
   }
-}
+
+
+#resource "aws_lb_listener_rule" "redirect_http_to_https" {
+ # listener_arn = aws_lb_listener.ALB_Listener.arn
+
+  #action {
+   # type = "redirect"
+
+    #redirect {
+     # port        = "443"
+      #protocol    = "HTTPS"
+    #  status_code = "HTTP_301"
+    #}
+  #}
+#}
 
 #resource "aws_lb_listener_certificate" "listener_certificate" {
  # listener_arn    = aws_lb_listener.NLB_Listener.arn
