@@ -26,7 +26,7 @@ resource "aws_lb_listener" "ALB_Listener" {
 
   default_action {
     type             = "redirect"
-    target_group_arn = aws_lb_target_group.front_end.arn
+    target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
   }
 }
 
@@ -106,7 +106,7 @@ resource "aws_security_group" "Secgrp_Instance" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["177.249.220.178/30"]
+    cidr_blocks      = ["177.249.220.176/30"]
   
   }
  ingress {
@@ -114,7 +114,7 @@ resource "aws_security_group" "Secgrp_Instance" {
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    cidr_blocks      = ["177.249.220.178/30"]  
+    cidr_blocks      = ["177.249.220.176/30"]  
   }
   egress {
     from_port        = 0
