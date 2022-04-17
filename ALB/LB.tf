@@ -22,7 +22,7 @@ resource "aws_lb_listener" "ALB_Listener" {
   port              = "80"
   protocol          = "HTTP"
   #ssl_policy        = "ELBSecurityPolicy-2016-08"
-  c#ertificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/5ec415f0-d3e4-47e9-8b43-d6a5e529f03e"
+  #certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/5ec415f0-d3e4-47e9-8b43-d6a5e529f03e"
 
    default_action {
     type = "redirect"
