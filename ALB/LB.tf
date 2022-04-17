@@ -19,10 +19,10 @@ resource "aws_lb" "ALB" {
   #ALB Listener:
 resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
-  port              = "80"
-  protocol          = "HTTP"
-  #ssl_policy        = "ELBSecurityPolicy-2016-08"
-  #certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/5ec415f0-d3e4-47e9-8b43-d6a5e529f03e"
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = "arn:aws:elasticloadbalancing:us-west-1:672021480727:listener/app/ALB/e79f9c4c5fc865f3/5521667ac7501b67"
 
    default_action {
     type = "redirect"
