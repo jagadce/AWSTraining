@@ -5,6 +5,8 @@ resource "aws_lb" "ALB" {
   load_balancer_type = "application"
   subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
   enable_deletion_protection = true
+  port              = "80"
+  protocol          = "HTTP"
   #access_logs {
     #bucket  = aws_s3_bucket.alb-bucket.bucket
     #prefix  = "prod"
@@ -29,8 +31,8 @@ resource "aws_lb_listener" "ALB_Listener" {
       port        = "443"
       protocol    = "HTTPS"
       status_code = "HTTP_301"
-     # ssl_policy        = "ELBSecurityPolicy-2016-08"
-  #certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
+     ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
     }
   }
 }
