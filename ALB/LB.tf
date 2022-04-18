@@ -19,7 +19,7 @@ resource "aws_lb" "ALB" {
   #ALB Listener:
 resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
-  port              = "8080"
+  port              = "443"
   protocol          = "HTTPS"
   
    default_action {
@@ -57,10 +57,10 @@ resource "aws_lb_listener" "ALB_Listener" {
   #}
 #}
 
-resource "aws_lb_listener_certificate" "listener_certificate" {
-listener_arn    = aws_lb_listener.ALB_Listener.arn
-certificate_arn = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
- }
+#resource "aws_lb_listener_certificate" "listener_certificate" {
+#listener_arn    = aws_lb_listener.ALB_Listener.arn
+#certificate_arn = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
+# }
 
 #Creating Target group 
 resource "aws_lb_target_group" "ALBTargetGroup" {
