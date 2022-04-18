@@ -25,16 +25,16 @@ resource "aws_lb_listener" "ALB_Listener" {
   certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
 
   
-   default_action {
-    type = "redirect"
+   #default_action {
+    #type = "redirect"
 
-    redirect {
-      port        = "443"
-      protocol    = "HTTPS"
-      status_code = "HTTP_301"
+    #redirect {
+     # port        = "443"
+      #protocol    = "HTTPS"
+      #status_code = "HTTP_301"
         }
-  }
-}
+#  }
+#}
   
  #condition {
   #  http_header {
