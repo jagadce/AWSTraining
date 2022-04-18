@@ -5,8 +5,6 @@ resource "aws_lb" "ALB" {
   load_balancer_type = "application"
   subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
   enable_deletion_protection = true
-  port              = "80"
-  protocol          = "HTTP"
   #access_logs {
     #bucket  = aws_s3_bucket.alb-bucket.bucket
     #prefix  = "prod"
