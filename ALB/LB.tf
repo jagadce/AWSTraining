@@ -19,8 +19,8 @@ resource "aws_lb" "ALB" {
   #ALB Listener:
 resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
-  port              = "80"
-  protocol          = "HTTP"
+  port              = "8080"
+  protocol          = "HTTPS"
   
    default_action {
     type = "redirect"
