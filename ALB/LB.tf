@@ -29,8 +29,8 @@ resource "aws_lb_listener" "ALB_Listener" {
       port        = "443"
       protocol    = "HTTPS"
       status_code = "HTTP_301"
-      ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
+     # ssl_policy        = "ELBSecurityPolicy-2016-08"
+  #certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
     }
   }
 }
@@ -57,10 +57,10 @@ resource "aws_lb_listener" "ALB_Listener" {
   #}
 #}
 
-#resource "aws_lb_listener_certificate" "listener_certificate" {
-#  listener_arn    = aws_lb_listener.ALB_Listener.arn
-#  certificate_arn = aws_acm_certificate.ALB.arn
- # }
+resource "aws_lb_listener_certificate" "listener_certificate" {
+listener_arn    = aws_lb_listener.ALB_Listener.arn
+certificate_arn = "arn:aws:acm:us-west-1:672021480727:certificate/73b745ba-45e4-4539-a92f-6a108adec58e"
+ }
 
 #Creating Target group 
 resource "aws_lb_target_group" "ALBTargetGroup" {
