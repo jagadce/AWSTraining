@@ -30,7 +30,7 @@ resource "aws_lb_listener" "ALB_Listener" {
     #  status_code = "HTTP_301"
      #   }
    #}
-#}
+}
  
 
 #resource "aws_lb_listener_rule" "redirect_http_to_https" {
