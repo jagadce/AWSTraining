@@ -59,8 +59,8 @@ resource "aws_lb_listener" "ALB_Listener" {
 #Creating Target group 
 resource "aws_lb_target_group" "ALBTargetGroup" {
   name        = "ALBTargetGroup"
-  port        = 443
-  protocol    = "HTTPS"
+  port        = 80
+  protocol    = "HTTP"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
 }
