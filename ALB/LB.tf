@@ -3,7 +3,7 @@ resource "aws_lb" "ALB" {
   name               = "ALB"
   internal           = false
   load_balancer_type = "application"
-  subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
+  subnets            = [aws_subnet.PublicTrainingsubnet.id,aws_subnet.PublicTrainingsubnet1.id]
   enable_deletion_protection = true
   
 
