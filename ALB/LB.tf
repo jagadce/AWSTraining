@@ -83,9 +83,9 @@ resource "aws_security_group" "Secgrp_ALB" {
 
   ingress {
     description      = "Accpet only 80Port"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "TCP"
+    from_port        = 443
+    to_port          = 443
+    protocol         = "HTTPS"
     cidr_blocks      = ["0.0.0.0/0"]
   
   }
@@ -119,8 +119,8 @@ resource "aws_security_group" "Secgrp_Instance" {
   }
  ingress {
     description      = "Accpet only 443 port from ALB"
-    from_port        = 80
-    to_port          = 80
+    from_port        = 443
+    to_port          = 443
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]  
   }
