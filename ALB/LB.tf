@@ -15,8 +15,8 @@ resource "aws_lb" "ALB" {
   #ALB Listener:
 resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
-  port              = "80"
-  protocol          = "HTTP"
+  port              = "443"
+  protocol          = "HTTPS"
   # ssl_policy        = "ELBSecurityPolicy-2016-08"
   #certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/e1cf4212-4c2d-4048-85e8-f8126d70ffb0"
   default_action {
@@ -59,8 +59,8 @@ resource "aws_lb_listener" "ALB_Listener" {
 #Creating Target group 
 resource "aws_lb_target_group" "ALBTargetGroup" {
   name        = "ALBTargetGroup"
-  port        = 80
-  protocol    = "HTTP"
+  port        = 443
+  protocol    = "HTTPS"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
 }
@@ -70,7 +70,7 @@ resource "aws_lb_target_group_attachment" "ALB-Tragetgroup-Attach" {
   count = length(aws_instance.ALB-Instance)
  target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
   target_id = aws_instance.ALB-Instance[count.index].id 
-port = 80        
+port = 443        
  }
 
 
@@ -83,8 +83,8 @@ resource "aws_security_group" "Secgrp_ALB" {
 
   ingress {
     description      = "Accpet only 80Port"
-    from_port        = 80
-    to_port          = 80
+    from_port        = 443
+    to_port          = 443
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]
   
@@ -119,8 +119,8 @@ resource "aws_security_group" "Secgrp_Instance" {
   }
  ingress {
     description      = "Accpet only 443 port from ALB"
-    from_port        = 80
-    to_port          = 80
+    from_port        = 443
+    to_port          = 443
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]  
   }
