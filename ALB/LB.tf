@@ -19,7 +19,11 @@ resource "aws_lb_listener" "ALB_Listener" {
   protocol          = "TCP"
   # ssl_policy        = "ELBSecurityPolicy-2016-08"
   #certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/e1cf4212-4c2d-4048-85e8-f8126d70ffb0"
-
+  default_action {
+  type             = "forward"
+   target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
+  }
+}
   
    #default_action {
     #type = "redirect"
@@ -30,7 +34,7 @@ resource "aws_lb_listener" "ALB_Listener" {
     #  status_code = "HTTP_301"
      #   }
    #}
-}
+#}
  
 
 #resource "aws_lb_listener_rule" "redirect_http_to_https" {
