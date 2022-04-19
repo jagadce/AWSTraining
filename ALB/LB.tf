@@ -128,7 +128,7 @@ resource "aws_security_group" "Secgrp_Instance" {
     description      = "Accpet only 80 port from ALB"
     from_port        = 80
     to_port          = 80
-    protocol         = "http"
+    protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]  
   }
   egress {
