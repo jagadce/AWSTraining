@@ -29,8 +29,7 @@ target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
       protocol    = "HTTPS"
       status_code = "HTTP_301"
         }
- }
-}
+
   
  condition {
     http_header {
@@ -38,7 +37,8 @@ target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
       values           = ["177.249.220.178"]
     }
   }
-
+ }
+}
 
 #resource "aws_lb_listener_rule" "redirect_http_to_https" {
  # listener_arn = aws_lb_listener.ALB_Listener.arn
