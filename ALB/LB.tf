@@ -121,7 +121,7 @@ resource "aws_security_group" "Secgrp_Instance" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["177.249.220.168/30"]
+    cidr_blocks      = ["177.249.220.178/30"]
   
   }
  ingress {
