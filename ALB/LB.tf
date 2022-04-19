@@ -16,21 +16,21 @@ resource "aws_lb" "ALB" {
 resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
   port              = "80"
-  protocol          = "HTTP"
-   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/e1cf4212-4c2d-4048-85e8-f8126d70ffb0"
+  protocol          = "TCP"
+  # ssl_policy        = "ELBSecurityPolicy-2016-08"
+  #certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/e1cf4212-4c2d-4048-85e8-f8126d70ffb0"
 
   
-   default_action {
-    type = "redirect"
-target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
-    redirect {
-      port        = "443"
-      protocol    = "HTTPS"
-      status_code = "HTTP_301"
-        }
-   }
-}
+   #default_action {
+    #type = "redirect"
+#target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
+ #   redirect {
+  #    port        = "443"
+   #   protocol    = "HTTPS"
+    #  status_code = "HTTP_301"
+     #   }
+   #}
+#}
  
 
 #resource "aws_lb_listener_rule" "redirect_http_to_https" {
@@ -55,8 +55,8 @@ target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
 #Creating Target group 
 resource "aws_lb_target_group" "ALBTargetGroup" {
   name        = "ALBTargetGroup"
-  port        = 443
-  protocol    = "HTTPS"
+  port        = 80
+  protocol    = "TCP"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
 }
@@ -79,8 +79,8 @@ resource "aws_security_group" "Secgrp_ALB" {
 
   ingress {
     description      = "Accpet only 80Port"
-    from_port        = 443
-    to_port          = 443
+    from_port        = 80
+    to_port          = 80
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]
   
@@ -115,8 +115,8 @@ resource "aws_security_group" "Secgrp_Instance" {
   }
  ingress {
     description      = "Accpet only 443 port from ALB"
-    from_port        = 443
-    to_port          = 443
+    from_port        = 80
+    to_port          = 80
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]  
   }
