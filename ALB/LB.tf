@@ -92,7 +92,7 @@ resource "aws_security_group" "Secgrp_ALB" {
     description      = "Accpet only 80Port"
     from_port        = 443
     to_port          = 443
-    protocol         = "HTTPS"
+    protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]
   
   }
