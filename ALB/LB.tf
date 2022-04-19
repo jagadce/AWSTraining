@@ -5,11 +5,7 @@ resource "aws_lb" "ALB" {
   load_balancer_type = "application"
   subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
   enable_deletion_protection = true
-  #access_logs {
-    #bucket  = aws_s3_bucket.alb-bucket.bucket
-    #prefix  = "prod"
-    #enabled = true
-  #}
+  
 
   tags = {
     Environment = "production"
@@ -26,22 +22,22 @@ resource "aws_lb_listener" "ALB_Listener" {
 
   
    default_action {
-    type = "forward"
+    type = "redirect"
 target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
-    #redirect {
-     # port        = "443"
-      #protocol    = "HTTPS"
-      #status_code = "HTTP_301"
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
         }
  }
-#}
+}
   
- #condition {
-  #  http_header {
-   #   http_header_name = "X-Forwarded-For"
-    #  values           = ["177.249.220.178"]
-    #}
-  #}
+ condition {
+    http_header {
+      http_header_name = "X-Forwarded-For"
+      values           = ["177.249.220.178"]
+    }
+  }
 
 
 #resource "aws_lb_listener_rule" "redirect_http_to_https" {
