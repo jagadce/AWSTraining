@@ -2,7 +2,7 @@
 resource "aws_lb" "ALB" {
   name               = "ALB"
   internal           = false
-  load_balancer_type = "Network"
+  load_balancer_type = "network"
   subnets            = [aws_subnet.PublicTrainingsubnet.id,aws_subnet.PublicTrainingsubnet1.id]
   enable_deletion_protection = true
   
