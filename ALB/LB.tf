@@ -126,9 +126,9 @@ resource "aws_security_group" "Secgrp_Instance" {
   }
  ingress {
     description      = "Accpet only 80 port from ALB"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "https"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "http"
     cidr_blocks      = ["0.0.0.0/0"]  
   }
   egress {
