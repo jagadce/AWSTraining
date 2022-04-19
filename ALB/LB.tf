@@ -105,7 +105,7 @@ resource "aws_security_group" "Secgrp_ALB" {
       }
 
   tags = {
-    Name = "Secgrp_NLB"
+    Name = "Secgrp_ALB"
   }
 }
 
@@ -121,7 +121,7 @@ resource "aws_security_group" "Secgrp_Instance" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["177.249.220.176/30"]
+    cidr_blocks      = ["177.249.220.175/30"]
   
   }
  ingress {
