@@ -125,7 +125,7 @@ resource "aws_security_group" "Secgrp_Instance" {
   
   }
  ingress {
-    description      = "Accpet only 80 port from ALB"
+    description      = "Accpet only 443 port from ALB"
     from_port        = 443
     to_port          = 443
     protocol         = "TCP"
