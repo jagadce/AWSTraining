@@ -77,7 +77,7 @@ resource "aws_lb_target_group_attachment" "ALB-Tragetgroup-Attach" {
   count = length(aws_instance.ALB-Instance)
  target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
   target_id = aws_instance.ALB-Instance[count.index].id 
-port = 443        
+port = 80        
  }
 
 
