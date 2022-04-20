@@ -3,7 +3,7 @@ resource "aws_lb" "ALB" {
   name               = "ALB"
   internal           = false
   load_balancer_type = "application"
-  subnets            = [aws_subnet.PublicTrainingsubnet.id,aws_subnet.PublicTrainingsubnet1.id]
+  subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
   enable_deletion_protection = true
   
 
@@ -63,6 +63,11 @@ resource "aws_lb_target_group" "ALBTargetGroup" {
   protocol    = "HTTPS"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
+    health_check {
+    port     = 443
+    protocol = "HTTPS"
+  }
+}
 }
 
 #Attaching Instance into Target group
