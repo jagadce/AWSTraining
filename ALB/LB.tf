@@ -16,6 +16,7 @@ resource "aws_lb" "ALB" {
 #ssl cert generate: openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/apache2/apache2.crt -keyout /etc/apache2/apache2.key
 resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
+  vpc_security_group_ids = [aws_security_group.Secgrp_ALB.id]
   port              = "80"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
