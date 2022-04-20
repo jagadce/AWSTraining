@@ -67,7 +67,7 @@ resource "aws_lb_target_group" "ALBTargetGroup" {
     health_check {
     port     = 80
     protocol = "HTTPS"
-    path = "/var/www/html"
+    path = "/var/www/html/index.html"
   }
 }
 
