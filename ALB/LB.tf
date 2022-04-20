@@ -66,6 +66,7 @@ resource "aws_lb_target_group" "ALBTargetGroup" {
     health_check {
     port     = 443
     protocol = "HTTPS"
+    path = "/etc/init.d/apache2"
   }
 }
 
