@@ -61,7 +61,7 @@ target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
 resource "aws_lb_target_group" "ALBTargetGroup" {
   name        = "ALBTargetGroup"
   port        = 80
-  protocol    = "HTTPS"
+  protocol    = "HTTP"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
     health_check {
