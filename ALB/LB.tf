@@ -5,6 +5,7 @@ resource "aws_lb" "ALB" {
   load_balancer_type = "application"
   subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
   enable_deletion_protection = true
+  vpc_security_group_ids = [aws_security_group.Secgrp_ALB.id]
   
 
   tags = {
@@ -16,8 +17,7 @@ resource "aws_lb" "ALB" {
 #ssl cert generate: openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/apache2/apache2.crt -keyout /etc/apache2/apache2.key
 resource "aws_lb_listener" "ALB_Listener" {
   load_balancer_arn = aws_lb.ALB.arn
-  vpc_security_group_ids = [aws_security_group.Secgrp_ALB.id]
-  port              = "80"
+    port              = "80"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = "arn:aws:acm:us-west-1:672021480727:certificate/8189bae4-5174-47f8-957d-febb35a671f4"
