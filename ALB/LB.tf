@@ -68,7 +68,7 @@ resource "aws_lb_target_group" "ALBTargetGroup" {
     protocol = "HTTPS"
   }
 }
-}
+
 
 #Attaching Instance into Target group
 resource "aws_lb_target_group_attachment" "ALB-Tragetgroup-Attach" {
