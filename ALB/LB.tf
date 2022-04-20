@@ -25,7 +25,7 @@ resource "aws_lb_listener" "ALB_Listener" {
   #}
   
    default_action {
-    type = "redirect"
+    type = "forward"
 target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
     redirect {
      port        = "443"
