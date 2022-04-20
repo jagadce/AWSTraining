@@ -5,7 +5,7 @@ resource "aws_lb" "ALB" {
   load_balancer_type = "application"
   subnets            = [aws_subnet.PrivateTrainingsubnet.id,aws_subnet.PrivateTrainingsubnet1.id]
   enable_deletion_protection = true
-  vpc_security_group_ids = [aws_security_group.Secgrp_ALB.id]
+  security_group_ids = [aws_security_group.Secgrp_ALB.id]
   
 
   tags = {
