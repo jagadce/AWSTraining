@@ -66,7 +66,7 @@ resource "aws_lb_target_group" "ALBTargetGroup" {
   vpc_id      = aws_vpc.Training.id
     health_check {
     port     = 80
-    protocol = "HTTPS"
+    protocol = "HTTP"
     path = "/var/www/html/index.html"
   }
 }
