@@ -60,12 +60,12 @@ target_group_arn = aws_lb_target_group.ALBTargetGroup.arn
 #Creating Target group 
 resource "aws_lb_target_group" "ALBTargetGroup" {
   name        = "ALBTargetGroup"
-  port        = 443
+  port        = 80
   protocol    = "HTTPS"
   target_type = "instance"
   vpc_id      = aws_vpc.Training.id
     health_check {
-    port     = 443
+    port     = 80
     protocol = "HTTPS"
     path = "/var/www/html"
   }
