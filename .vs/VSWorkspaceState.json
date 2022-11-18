@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TerraformWithAWS"
+    "\\TerraformWithAWS",
+    "\\TerraformWithAWS\\Create Instance"
   ],
-  "SelectedNode": "\\TerraformWithAWS\\VPC",
+  "SelectedNode": "\\TerraformWithAWS\\Create Instance\\createinstance.tf",
   "PreviewInSolutionExplorer": false
 }

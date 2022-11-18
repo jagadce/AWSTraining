@@ -18,3 +18,4 @@ tags = {
 #output "public_ip" {
  #   value = aws_instance.Name.public_ip  
 #}
+h
